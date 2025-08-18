@@ -35,7 +35,7 @@ main.py                Script principal para rodar o app
 requirements.txt       Dependências do projeto
 .gitignore             Arquivos e pastas ignoradas pelo Git
 README.md              Este arquivo
-````
+```
 
 ## Instalação
 
@@ -45,15 +45,20 @@ README.md              Este arquivo
 
 2. Crie e ative um virtual environment:
    # Windows
+   ```
    python -m venv venv
    venv\Scripts\activate
-
+   ```
    # Linux / macOS
+   ```
    python3 -m venv venv
    source venv/bin/activate
+   ```
 
 3. Instale as dependências:
+   ```
    pip install -r requirements.txt
+   ```
 
 4. Crie um arquivo .env na raiz do projeto e defina a chave secreta:
    SECRET_KEY=sua_chave_super_secreta
