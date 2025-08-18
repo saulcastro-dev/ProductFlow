@@ -20,7 +20,7 @@ ProductFlow é um projeto em Flask para gerenciamento de produtos, permitindo ca
 - HTML/Jinja2 para templates
 
 ## Estrutura do projeto
-
+```
 app/
 ├── __init__.py        Criação e configuração do app Flask
 ├── models.py          Modelos de banco de dados (Product)
@@ -35,6 +35,7 @@ main.py                Script principal para rodar o app
 requirements.txt       Dependências do projeto
 .gitignore             Arquivos e pastas ignoradas pelo Git
 README.md              Este arquivo
+````
 
 ## Instalação
 
