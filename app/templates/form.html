@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1 class="title">{% block title %}{% endblock %}</h1>
+<form class="form" method="POST">
+    {{ form.hidden_tag() }}
+    <div class="field">
+        <label class="label" for="{{ form.name.id }}">{{ form.name.label.text }}</label>
+        <div class="control">
+            {{ form.name() }}
+        </div>
+    </div>
+    <div class="field">
+        <label class="label" for="{{ form.price.id }}">{{ form.price.label.text }}</label>
+        <div class="control">
+            {{ form.price() }}
+        </div>
+    </div>
+    <div class="field">
+        <label class="label" for="{{ form.quantity.id }}">{{ form.quantity.label.text }}</label>
+        <div class="control">
+            {{ form.quantity() }}
+        </div>
+    </div>
+    <div class="field is-grouped">
+        <div class="control">
+            {{ form.submit() }}
+            <a class="button" href="{{ url_for('list_products') }}">Cancelar</a>
+        </div>
+    </div>
+</form>
+{% endblock %}

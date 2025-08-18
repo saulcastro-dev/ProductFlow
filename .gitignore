@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.pyc
+venv/
+env/
+ENV/
+.venv/
+
+# Database
+*.db
+
+# Flask / Enviroment vairables
+.env
+instance/
+
+# IDEs
+.vscode/
+.idea/
+
+# OS Files
+Thumbs.db
+desktop.ini
+*.log

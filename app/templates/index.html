@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block content %}
+<a class="button" href="{{ url_for('register_product') }}">Registrar Produto</a>
+<table class="table">
+    <thead class="thead">
+        <tr class="tr">
+            <td class="td">Nome do Produto</td>
+            <td class="td">Preço</td>
+            <td class="td">Quantidade</td>
+            <td class="td" colspan="2">Comandos</td>
+        </tr>
+    </thead>
+    <tbody class="tbody">
+        {% for product in products %}
+            <tr class="tr">
+                <td class="td">{{ product.name }}</td>
+                <td class="td">R$ {{ "%.2f" | format(product.price) }}</td>
+                <td class="td">{{ product.quantity }}</td>
+                <td class="td is-flex" colspan="2">
+                    <a class="button is-light mr-2" href="{{ url_for('update_product', id=product.id) }}">
+                        <img class="image is-16x16" src="{{ url_for('static', filename='img/update.png') }}" alt="Icone de Atualização">
+                    </a>
+                    <form action="{{ url_for('remove_product', id=product.id)}}" method="POST">
+                        <button class="button is-light" type="submit" onclick="return confirm('Tem certeza que deseja remover este produto?');">
+                            <img class="image is-16x16" src="{{ url_for('static', filename='img/remove.png') }}" alt="Icone de Remoção">
+                        </button>
+                    </form>
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
