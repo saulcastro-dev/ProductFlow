@@ -65,7 +65,7 @@ README.md              Este arquivo
 
 ## Como rodar
 
-python main.py
+`python main.py`
 
 O servidor Flask iniciará em http://127.0.0.1:5000/ por padrão. Você poderá acessar a aplicação pelo navegador e gerenciar os produtos.
 
