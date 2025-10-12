@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
+
 {% block content %}
-<a class="button" href="{{ url_for('register_product') }}">Registrar Produto</a>
+<a class="button" href="{{ url_for('products.register_product') }}">Registrar Produto</a>
 <table class="table">
     <thead class="thead">
         <tr class="tr">
@@ -17,10 +18,10 @@
                 <td class="td">R$ {{ "%.2f" | format(product.price) }}</td>
                 <td class="td">{{ product.quantity }}</td>
                 <td class="td is-flex" colspan="2">
-                    <a class="button is-light mr-2" href="{{ url_for('update_product', id=product.id) }}">
+                    <a class="button is-light mr-2" href="{{ url_for('products.update_product', id=product.id) }}">
                         <img class="image is-16x16" src="{{ url_for('static', filename='img/update.png') }}" alt="Icone de Atualização">
                     </a>
-                    <form action="{{ url_for('remove_product', id=product.id)}}" method="POST">
+                    <form action="{{ url_for('products.remove_product', id=product.id)}}" method="POST">
                         <button class="button is-light" type="submit" onclick="return confirm('Tem certeza que deseja remover este produto?');">
                             <img class="image is-16x16" src="{{ url_for('static', filename='img/remove.png') }}" alt="Icone de Remoção">
                         </button>
