@@ -1,15 +1,18 @@
-from flask import render_template, url_for, redirect
-from app import app
-from app.models import db, Product
-from app.forms import ProductForm
+from flask import Blueprint, render_template, request, url_for, redirect
+from app.extensions import db
 
-@app.route('/')
+from .models import Product
+from .forms import ProductForm
+
+product_bp = Blueprint('products', __name__, template_folder='templates')
+
+@product_bp.route('/products')
 def list_products():
     products = Product.query.all()
     
-    return render_template('index.html', products=products)
+    return render_template('product_list.html', products=products)
 
-@app.route('/products/register', methods=['GET', 'POST'])
+@product_bp.route('/products/register', methods=['GET', 'POST'])
 def register_product():
     form = ProductForm()
     
@@ -21,11 +24,11 @@ def register_product():
         
         db.session.add(new_product)
         db.session.commit()
-        return redirect(url_for('list_products'))
+        return redirect(url_for('products.list_products'))
     
     return render_template('register.html', form=form)
 
-@app.route('/products/update/<int:id>', methods=['GET', 'POST'])
+@product_bp.route('/products/update/<int:id>', methods=['GET', 'POST'])
 def update_product(id):
     product = Product.query.get_or_404(id)
     form = ProductForm(obj=product)
@@ -36,15 +39,15 @@ def update_product(id):
         product.quantity = form.quantity.data
         
         db.session.commit()
-        return redirect(url_for('list_products'))
+        return redirect(url_for('products.list_products'))
     
     return render_template('update.html', form=form)
 
-@app.route('/products/<int:id>', methods=['POST'])
+@product_bp.route('/products/delete/<int:id>', methods=['POST'])
 def remove_product(id):
     product = Product.query.get_or_404(id)
     form = ProductForm(obj=product)
     db.session.delete(product)
     db.session.commit()
     
-    return redirect(url_for('list_products'))
+    return redirect(url_for('products.list_products'))
