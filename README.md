@@ -40,8 +40,7 @@ README.md              Este arquivo
 ## Instalação
 
 1. Clone o repositório:
-   git clone https://github.com/seu-usuario/data-sabe.git
-   cd data-sabe
+   `git clone https://github.com/saulcastro-dev/ProductFlow.git`
 
 2. Crie e ative um virtual environment:
    # Windows
@@ -61,26 +60,27 @@ README.md              Este arquivo
    ```
 
 4. Crie um arquivo .env na raiz do projeto e defina a chave secreta:
-   SECRET_KEY=sua_chave_super_secreta
+   `SECRET_KEY=sua_chave_super_secreta`
 
 ## Como rodar
 
-`python main.py`
+Execute o seguinte comando em um terminal
+`flask run`
 
-O servidor Flask iniciará em http://127.0.0.1:5000/ por padrão. Você poderá acessar a aplicação pelo navegador e gerenciar os produtos.
+O servidor Flask iniciará em http://127.0.0.1:5000 por padrão. Você poderá acessar a aplicação pelo navegador e gerenciar os produtos.
 
 ## Observações importantes
 
 - Banco de dados: O projeto usa SQLite (datasabe.db). Ele é criado automaticamente em ambiente de desenvolvimento.  
-- SECRET_KEY: Nunca suba sua chave secreta para o GitHub. Use .env ou variáveis de ambiente.  
-- Formulários: Todos os formulários possuem validação básica com Flask-WTF.  
+- SECRET_KEY: Nunca suba sua chave secreta para o GitHub. Use **.env** ou variáveis de ambiente.  
+- Formulários: Todos os formulários possuem validação básica com **Flask-WTF**.  
 
 ## Boas práticas
 
 - Use virtual environments para isolar dependências.  
-- Não versionar arquivos sensíveis (.env, *.db) no Git.  
-- Use url_for para redirecionamentos, evitando URLs fixas.  
-- Em produção, configure corretamente a SECRET_KEY e o banco de dados.
+- Não versionar arquivos sensíveis (**.env**, ***.db**) no Git.  
+- Use `url_for` para redirecionamentos, evitando URLs fixas.  
+- Em produção, configure corretamente a **SECRET_KEY** e o banco de dados.
 
 ## Licença
 
