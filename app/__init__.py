@@ -2,11 +2,13 @@ from flask import Flask
 from .config import Config
 from .extensions import db
 
+from .views import app_bp
 from products.views import product_bp
 
 app = Flask(__name__)
 app.config.from_object(Config())
 
+app.register_blueprint(app_bp)
 app.register_blueprint(product_bp)
 
 db.init_app(app)
